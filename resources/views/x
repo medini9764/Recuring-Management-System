@@ -1,0 +1,367 @@
+<!doctype html>
+
+<style type="text/css">
+    body{
+        /* background: linear-gradient(to bottom right, #1b5e3e, #66bb6a); */
+        background-color: #1b5e3e;
+    }
+
+    .container .jumbotron {
+             /* Background image */
+             background-image: url('{{asset('assets/images/mosque2.png')}}');
+            /* Gradient overlay */
+             background: linear-gradient(to bottom right, rgba(27, 94, 62, 0.8), rgba(102, 187, 106, 0.8)), url('{{asset('assets/images/mosque2.png')}}'); 
+            /* Ensure the background image covers the entire area */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            /* Fallback background color */
+            background-color: #1b5e3e;
+    }
+
+    /* .logo-img {
+        vertical-align: middle;
+        width: 70px;
+        margin: 0 auto;
+        display: block;
+    } */
+
+    a {
+    color: #ffff !important;
+    }
+
+    legend{
+        color: #fff;
+        text-align: center !important;
+        padding: 10px !important;
+        width: 60% !important;
+        margin: 5px auto 25px;
+    }
+
+    p.back {
+        font-size: 14px !important;
+        color: #fff !important;
+        text-align: right;
+        cursor: pointer;
+    }
+
+    label#name-error {
+        font-size: 13px;
+        padding: 10px 0px;
+        color: #ffff; 
+    }
+
+    label#contact_no-error {
+        font-size: 13px;
+        padding: 10px 0px;
+        color: #ffff; 
+    }
+
+    label#email-error {
+        font-size: 13px;
+        padding: 10px 0px;
+        color: #ffff; 
+    }
+
+    label#batch-error {
+        font-size: 13px;
+        padding: 10px 0px;
+        color: #ffff; 
+    }
+
+    label#amount-error {
+        font-size: 13px;
+        padding: 10px 0px;
+        color: #ffff; 
+    }
+    
+    footer.footer {
+    background: #f7f7f7;
+    padding: 25px 0px;
+    margin: 0 auto;
+    }
+    
+    .Powerdby {
+    text-align: center;
+    }
+    
+    .ft-image{
+    width: 240px;
+    }
+
+    @media only screen and (max-width: 767px){
+        legend{
+            width: 80% !important;
+        }
+    }
+
+</style>
+
+<html lang="en">
+<head>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <meta charset="UTF-8">
+    <meta name="viewport"
+    content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="{{asset('assets/images/mosque2.jpg')}}">
+    <title>GRAND MOSQUE COLOMBO</title>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header clearfix">
+            <nav>
+                <ul class="nav nav-pills float-right">
+                    <li class="nav-item">
+
+                    </li>
+                    <li class="nav-item">
+
+                    </li>
+                    <li class="nav-item">
+
+                    </li>
+                </ul>
+            </nav>
+
+        </div>
+
+        <div class="jumbotron" >
+
+          <<  <!-- <a href="https://fund.oasc.lk"><img style="height: 300px;width: auto !important;" src="{{asset('img/mosque.jpg')}}" class="logo-img"></a> -->>>
+
+            <form class="form-horizontal" id="stc_form" action="{{url('submit_stc_form')}}" method="post" >
+
+                <fieldset>
+
+                    <!-- Form Name -->
+
+
+                    <legend style="color: #fff;padding: 15px 15px 15px 0px;">One Time Donation Form{{$id}}</legend>
+
+                    <div class="col-xs-12">
+                        <p class="back"><a href="{{url('/')}}">< Back</a></p>
+                    </div>
+
+                    {{csrf_field()}}
+                    <!-- Text input-->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="name" style="font-size: 16px; color: #fff;">Name<sup style="color: red">*</sup></label>
+                        <div class="col-md-4">
+                            <input id="name" name="name" type="text" placeholder="" class="form-control input-md" required="">
+
+                        </div>
+                    </div>
+
+                    <!-- Text input-->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="contact_no" style="font-size: 16px; color: #fff;">Contact No<sup style="color: red">*</sup></label>
+                        <div class="col-md-4">
+                            <input id="contact_no" name="contact_no" type="text" placeholder="" class="form-control input-md" required="">
+
+                        </div>
+                    </div>
+
+                    <!-- Text input-->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="email" style="font-size: 16px; color: #fff;">E-Mail<sup style="color: red">*</sup></label>
+                        <div class="col-md-4">
+                            <input id="email" name="email" type="email" placeholder="" class="form-control input-md" required="">
+
+                        </div>
+                    </div>
+
+                    <input id="category_id" name="category_id" type="hidden" value="{{$id}}">
+                    <!-- <div class="form-group">
+                        <label for="example-text-input control-label" class="col-md-4 control-label" style="font-size: 16px; color: #fff;">Donor Category/Type<sup
+                                    style="color: red">*</sup></label>
+                        <div class="col-md-4">
+                            <select id="donor_category" name="donor_category" class="form-control">
+                                <option value="">--Select--</option>
+                                <option value="OBA">OBA</option>
+                                <option value="OASC">OASC</option>
+                                <option value="OAPF">OAPF</option>
+                                <option value="Cricket Wing">Cricket Wing</option>
+                            </select>
+
+                            @if ($errors->has('doner_category'))
+                                <span class="help-block">
+                                        <strong>{{ $errors->first('doner_category') }}</strong>
+                                    </span>
+                            @endif
+                        </div>
+                    </div> -->
+                    <!-- Text input-->
+                    <!-- <div class="form-group">
+                        <label class="col-md-4 control-label" for="batch" style="font-size: 16px; color: #fff;">Batch<sup style="color: red"></sup></label>
+                        <div class="col-md-4">
+                            <input id="batch" name="batch" type="text" placeholder="" class="form-control input-md">
+
+                        </div>
+                    </div> -->
+
+
+
+
+                    <!-- Select Basic -->
+                  {{--  <div class="form-group">
+                        <label class="col-md-4 control-label" for="payment_type" style="font-size: 16px; color: #fff;">Payment Type<sup style="color: red">*</sup></label>
+                        <div class="col-md-4">
+                            <select id="payment_type" name="payment_type" class="form-control">
+                                <option value="2">Recurring</option>
+                                <option value="1">One Time</option>
+
+                            </select>
+                        </div>
+                    </div>--}}
+
+                    <!-- Text input-->
+                 {{--   <div class="form-group">
+                        <label class="col-md-4 control-label" for="project" style="font-size: 16px; color: #fff;">Project</label>
+                        <div class="col-md-4">
+                            <input id="project" name="project" type="text" placeholder="" class="form-control input-md">
+
+                        </div>
+                    </div>--}}
+
+                    <!-- Text input-->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="amount" style="font-size: 16px; color: #fff;">Amount<sup style="color: red">*</sup></label>
+
+                        <div class="col-md-4">
+                            <input id="amount" name="amount" type="text" placeholder="" class="form-control input-md" required="">
+                            <p style="font-size: 14px; color: #fff; padding: 15px 0px;">Convenience fee of 2.6% will get charged to the card on top of the committed amount</p>
+                            <p style="font-size: 16px; color: #fff;"><strong>Total :</strong><span id="total_cost"></span> </p>
+                        </div>
+                    </div>
+                    <!-- Button -->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="singlebutton"></label>
+                        <div class="col-md-4">
+                            <button type="submit" id="singlebutton" name="singlebutton" class="btn btn-primary">Submit</button>
+                        </div>
+                    </div>
+
+
+                </fieldset>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+<!-- <div class="row marketing">
+
+
+
+</div>
+
+<footer class="footer">
+<div class="Powerdby">
+    <a href="https://webxpay.co" target="_blank"><img class="ft-image" src="{{asset('img/mosque.jpg')}} " alt="Powerd by"></a>
+</div>
+</footer> -->
+
+
+
+
+
+
+
+</body>
+</html>
+
+<!-- Latest compiled and minified JavaScript -->
+
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"
+integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/additional-methods.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/additional-methods.min.js"></script>
+
+<script>
+
+    $('#amount').keyup(function () {
+        let price=$(this).val();
+
+      //  let price_with_tax=parseInt(price)+parseInt(price)*0.03092;
+        let price_with_tax = parseInt(price)*100 / (100 - 2.6694);
+        if (isNaN(price_with_tax)){
+            $('#total_cost').html(' Rs. '+0.00);
+        }else{
+            $('#total_cost').html(' Rs. '+parseFloat(price_with_tax, 10).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, "$1,").toString());
+        }
+    });
+
+
+    jQuery("#stc_form").validate({
+
+
+
+        rules: {
+            name:{
+                required:true
+            },
+            contact_no:{
+                required: true,
+                number:true,
+                minlength: 9
+
+
+            },
+            email:{
+                required: true
+            },
+
+            donor_category:{
+                required: true
+            },
+            payment_type:{
+                required: true
+            },
+            amount:{
+                required: true,
+                number: true,
+                min:1000
+            }
+        },
+
+        messages: {
+
+        },
+
+        submitHandler: function () {
+
+// start loaders
+var forms = $("#stc_form");
+
+
+var form = $(this);
+
+jQuery.ajax({
+    url: forms.attr('action'),
+    type: forms.attr('method'),
+    data:  form.serialize(),
+    dataType: 'json',
+    cache: false,
+    success: function (response) {
+
+
+// location.reload();
+
+}
+});
+}
+});
+</script>
+
+
